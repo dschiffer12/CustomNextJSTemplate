@@ -3,14 +3,14 @@ This is a custom nextjs starter template made by Dustin Schiffer for use in a va
 
 This project utilizes Prisma and Prisma Studio. You will need to configure the database URL in the .env file and ensure the schema.prisma file is configured correctly. The project uses mysql, but you can use postgresql easily through Prisma if needed.
 
-
+```bash
 npx prisma db:push
 
 then
 
 npx prisma generate
 
-
+```
 
 ## Getting Started
 

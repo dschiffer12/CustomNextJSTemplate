@@ -1,6 +1,8 @@
 
 This is a custom nextjs starter template project being developed by Dustin Schiffer for use in a variety of projects. It is being developed using pnpm, but the other package managers should work. It is a work in progress in active development.
 
+Kinde is an easy-to-use authentication service I'm using for this project. You can use any authentication such as nextAuth, auth0, or firebase.
+
 This project utilizes Prisma and Prisma Studio. You will need to configure the database URL in the .env file and ensure the schema.prisma file is configured correctly. The project uses mysql, but you can use postgresql easily through Prisma if needed.
 
 ```bash

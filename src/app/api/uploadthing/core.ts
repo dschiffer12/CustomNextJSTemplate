@@ -49,14 +49,14 @@ const onUploadComplete = async ({
       key: file.key,
       name: file.name,
       userId: metadata.userId,
-      url: `https://pdf-template-48d6147.svc.us-west4-gcp-free.pinecone.io/${file.key}`,
+      url: `https://uploadthing-prod.s3.us-west-2.amazonaws.com/${file.key}`,
       uploadStatus: 'PROCESSING',
     },
   })
 
   try {
     const response = await fetch(
-      `https://pdf-template-48d6147.svc.us-west4-gcp-free.pinecone.io/${file.key}`
+      `https://uploadthing-prod.s3.us-west-2.amazonaws.com/${file.key}`
     )
 
     const blob = await response.blob()
@@ -94,7 +94,7 @@ const onUploadComplete = async ({
 
     // vectorize and index entire document
     const pinecone = await getPineconeClient()
-    const pineconeIndex = pinecone.Index('pdf-template')
+    const pineconeIndex = pinecone.Index('quill')
 
     const embeddings = new OpenAIEmbeddings({
       openAIApiKey: process.env.OPENAI_API_KEY,

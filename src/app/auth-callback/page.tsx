@@ -10,7 +10,7 @@ const Page = () => {
     const searchParams = useSearchParams()
     const origin = searchParams.get('origin')
 
-    const apiResponse = fetch('/api/whatever')
+    
 
     trpc.authCallback.useQuery(undefined, {
       onSuccess: ({success}) => {

@@ -14,9 +14,10 @@ export function absoluteUrl(path: string) {
     process.env.PORT ?? 3000
   }${path}`
 }
+
 export function constructMetadata({
-  title = "PDForge",
-  description = "A new way to discover information in PDFs",
+  title = "ForgePDF",
+  description = "Easily chat with your documents",
   image = "/thumbnail.png",
   icons = "/favicon.ico",
   noIndex = false
@@ -40,6 +41,7 @@ export function constructMetadata({
       ]
     },
     icons,
+    metadataBase: new URL('https://focusforge.app'),
     themeColor: '#FFF',
     ...(noIndex && {
       robots: {

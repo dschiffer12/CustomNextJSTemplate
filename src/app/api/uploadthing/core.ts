@@ -56,8 +56,7 @@ const onUploadComplete = async ({
 
   try {
     const response = await fetch(
-      `https://uploadthing-prod.s3.us-west-2.amazonaws.com/${file.key}`
-    )
+      "https://uploadthing-prod.s3.us-west-2.amazonaws.com/"+file.key)
 
     const blob = await response.blob()
 
@@ -66,7 +65,7 @@ const onUploadComplete = async ({
     const pageLevelDocs = await loader.load()
 
     const pagesAmt = pageLevelDocs.length
-
+      pageLevelDocs[0].metadata.fileId = createdFile.id
     const { subscriptionPlan } = metadata
     const { isSubscribed } = subscriptionPlan
 
@@ -94,7 +93,7 @@ const onUploadComplete = async ({
 
     // vectorize and index entire document
     const pinecone = await getPineconeClient()
-    const pineconeIndex = pinecone.Index('quill')
+    const pineconeIndex = pinecone.Index('deployed')
 
     const embeddings = new OpenAIEmbeddings({
       openAIApiKey: process.env.OPENAI_API_KEY,
@@ -104,6 +103,7 @@ const onUploadComplete = async ({
       pageLevelDocs,
       embeddings,
       {
+        pinecone,
         /*@ts-ignore */
         pineconeIndex,
         namespace: createdFile.id,

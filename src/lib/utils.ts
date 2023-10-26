@@ -5,7 +5,6 @@ import { twMerge } from 'tailwind-merge'
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
-
 export function absoluteUrl(path: string) {
   if (typeof window !== 'undefined') return path
   if (process.env.VERCEL_URL)
@@ -14,10 +13,9 @@ export function absoluteUrl(path: string) {
     process.env.PORT ?? 3000
   }${path}`
 }
-
 export function constructMetadata({
-  title = "ForgePDF",
-  description = "Easily chat with your documents",
+  title = "ForgePDF - the SaaS for students",
+  description = "ForgePDF makes chatting to your PDF files easy.",
   image = "/thumbnail.png",
   icons = "/favicon.ico",
   noIndex = false
@@ -41,7 +39,6 @@ export function constructMetadata({
       ]
     },
     icons,
-    metadataBase: new URL('https://focusforge.app'),
     themeColor: '#FFF',
     ...(noIndex && {
       robots: {

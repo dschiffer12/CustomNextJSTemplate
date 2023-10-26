@@ -2,7 +2,11 @@
     "WillLuke.nextjs.addTypesOnSave": true,
     "WillLuke.nextjs.hasPrompted": true,
     "cSpell.words": [
+        "clsx",
+        "fileid",
         "openai",
+        "tanstack",
+        "trpc",
         "uploadthing"
     ]
 }
